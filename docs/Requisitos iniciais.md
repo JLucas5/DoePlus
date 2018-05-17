@@ -8,7 +8,7 @@
 * Firebase
 
 ## Telas
-* Eventos
+* Lista de eventos
 * Tela inicial perguntando se é Instituição ou Cidadão
 * Login da instituição
 * Cadastro da instituição
