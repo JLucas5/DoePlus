@@ -31,8 +31,6 @@ public class EventViewActivity extends AppCompatActivity {
         //Setting up textViews
         Toolbar toolbar = findViewById(R.id.toolbar);
         TextView location = findViewById(R.id.locationEvent);
-//        TextView address = findViewById(R.id.addressEvent);
-        TextView title = findViewById(R.id.titleEvent);
         TextView date = findViewById(R.id.dateEvent);
         TextView timeEnd = findViewById(R.id.timeEndEvent);
         TextView timeStart = findViewById(R.id.timeStartEvent);
@@ -42,9 +40,7 @@ public class EventViewActivity extends AppCompatActivity {
 
         //Placing content on textViews
         toolbar.setTitle(event.getTitle());
-        title.setText(event.getTitle());
         location.setText(event.getLocation());
-//        address.setText(event.getAddress());
         date.setText(event.getDate());
         timeEnd.setText(event.getTimeEnd());
         timeStart.setText(event.getTimeStart());
@@ -57,8 +53,7 @@ public class EventViewActivity extends AppCompatActivity {
 
 
     public void showMap(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?q=" + this.event.getLocation()
-                /* + ", " + this.event.getAddress() */ ));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?q=" + this.event.getLocation()));
         startActivity(intent);
     }
 }

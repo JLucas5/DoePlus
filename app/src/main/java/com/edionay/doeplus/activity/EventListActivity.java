@@ -42,7 +42,6 @@ public class EventListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
         listEvents = new ArrayList<>();
@@ -110,21 +109,24 @@ public class EventListActivity extends AppCompatActivity {
                 )
         );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> funcionaw
         final EditText editText = findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//                filter(editText.getText().toString());
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                filter(editText.getText().toString());
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 filter(editText.getText().toString());
             }
         });
@@ -138,14 +140,14 @@ public class EventListActivity extends AppCompatActivity {
         for(Event event: listEvents){
             if ( event.getTitle().toLowerCase().contains(text.toLowerCase())
                     ||  event.getLocation().toLowerCase().contains(text.toLowerCase())
-                    ||  event.getDate().toLowerCase().contains(text.toLowerCase())
-                    /*||  event.getAddress().toLowerCase().contains(text.toLowerCase())*/){
+                    ||  event.getDate().toLowerCase().contains(text.toLowerCase())){
                 filteredList.add(event);
             };
         }
         eventAdapter.filterList(filteredList);
     }
 
+<<<<<<< HEAD
     public void newEventPressAction(View view) {
 
         autentication = FirebaseService.getAutentication();
@@ -157,5 +159,10 @@ public class EventListActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), NewEventActivity.class);
             startActivity(intent);
         }
+=======
+    public void newEventTrigger(View view) {
+        Intent intent = new Intent(getApplicationContext(), NewEventActivity.class);
+        startActivity(intent);
+>>>>>>> funcionaw
     }
 }
