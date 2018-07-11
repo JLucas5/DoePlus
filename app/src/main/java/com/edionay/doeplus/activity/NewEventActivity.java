@@ -1,21 +1,25 @@
 package com.edionay.doeplus.activity;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.edionay.doeplus.R;
 import com.edionay.doeplus.model.Event;
 import com.edionay.doeplus.service.FirebaseService;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class NewEventActivity extends AppCompatActivity {
 
     FloatingActionButton registerButton;
     Event event;
     TextInputEditText title, description, date, startTime, endTime, location;
+    FirebaseAuth autentication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,15 @@ public class NewEventActivity extends AppCompatActivity {
                 event.setLocation(location.getText().toString());
 
                 FirebaseService.publishEvent(event);
+                autentication = FirebaseAuth.getInstance();
+                autentication.signOut();
+
+                Toast.makeText(NewEventActivity.this,
+                        "Evento cadastrado!",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
+                startActivity(intent);
             }
         });
     }
