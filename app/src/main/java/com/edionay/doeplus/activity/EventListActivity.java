@@ -19,6 +19,8 @@ import com.edionay.doeplus.R;
 import com.edionay.doeplus.RecyclerItemClickListener;
 import com.edionay.doeplus.adapter.EventAdapter;
 import com.edionay.doeplus.model.Event;
+import com.edionay.doeplus.service.FirebaseService;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +36,9 @@ public class EventListActivity extends AppCompatActivity {
     private List<Event> listEvents;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private EventAdapter eventAdapter;
+    FloatingActionButton eventButton;
+    private FirebaseAuth autentication;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class EventListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         listEvents = new ArrayList<>();
+        eventButton = findViewById(R.id.eventButton);
 
         final DatabaseReference events = database.child("events");
 
@@ -74,6 +80,7 @@ public class EventListActivity extends AppCompatActivity {
             }
         });
 
+
         //Click Event
         recyclerView.addOnItemTouchListener(
 
@@ -92,7 +99,7 @@ public class EventListActivity extends AppCompatActivity {
 
                             @Override
                             public void onLongItemClick(View view, int position) {
-                                Toast.makeText(getApplicationContext(), "Mas aí segura memo", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "Mas aí segura memo", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -102,16 +109,6 @@ public class EventListActivity extends AppCompatActivity {
                         }
                 )
         );
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
 
         final EditText editText = findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
@@ -131,7 +128,9 @@ public class EventListActivity extends AppCompatActivity {
                 filter(editText.getText().toString());
             }
         });
+
     }
+
 
     private void filter(String text){
         ArrayList<Event> filteredList = new ArrayList<>();
@@ -145,5 +144,18 @@ public class EventListActivity extends AppCompatActivity {
             };
         }
         eventAdapter.filterList(filteredList);
+    }
+
+    public void newEventPressAction(View view) {
+
+        autentication = FirebaseService.getAutentication();
+
+        if (autentication.getCurrentUser() == null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), NewEventActivity.class);
+            startActivity(intent);
+        }
     }
 }

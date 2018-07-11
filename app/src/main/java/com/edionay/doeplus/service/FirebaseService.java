@@ -20,14 +20,17 @@ public class FirebaseService {
     }
 
     public static DatabaseReference getFirebaseReference() {
+
         if (firebaseReference == null) {
             firebaseReference = FirebaseDatabase.getInstance().getReference();
         }
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         return firebaseReference;
     }
 
     public static void publishEvent(Event event) {
         firebaseReference = getFirebaseReference();
         firebaseReference.child("events").push().setValue(event);
+        FirebaseService.getAutentication().signOut();
     }
 }

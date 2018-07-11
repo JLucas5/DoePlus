@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.edionay.doeplus.R;
 import com.edionay.doeplus.model.Event;
 import com.edionay.doeplus.service.FirebaseService;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class NewEventActivity extends AppCompatActivity {
 
@@ -45,5 +46,7 @@ public class NewEventActivity extends AppCompatActivity {
                 FirebaseService.publishEvent(event);
             }
         });
+
+
     }
 }

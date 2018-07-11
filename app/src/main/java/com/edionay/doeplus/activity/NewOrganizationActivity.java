@@ -1,5 +1,6 @@
 package com.edionay.doeplus.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -74,6 +75,9 @@ public class NewOrganizationActivity extends AppCompatActivity {
                     Toast.makeText(NewOrganizationActivity.this,
                             "Cadastro efetuado",
                             Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
+                    startActivity(intent);
                 } else {
 
                     String exception = "";
