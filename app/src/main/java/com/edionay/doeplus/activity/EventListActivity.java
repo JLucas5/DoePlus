@@ -103,31 +103,32 @@ public class EventListActivity extends AppCompatActivity {
                 )
         );
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
 
-        EditText editText = findViewById(R.id.editText);
+        final EditText editText = findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+//                filter(editText.getText().toString());
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                filter(editText.getText().toString());
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                filter(s.toString());
+                filter(editText.getText().toString());
             }
         });
     }
