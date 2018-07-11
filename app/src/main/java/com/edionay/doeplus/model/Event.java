@@ -18,10 +18,6 @@ public class Event implements Serializable{
     }
 
     public Event(String title, String date, String location) {
-        this.title = title;
-        this.date = date;
-        this.location = location;
-
     }
 
     public String getTitle() {

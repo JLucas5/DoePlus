@@ -11,30 +11,23 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.EventListActivity"
-            android:label="@string/events">
-
-        </activity>
+            android:label="@string/events" />
         <activity android:name=".activity.MainActivity" />
-        <activity
-            android:name=".activity.EventActivity"
-            android:label="Evento" />
         <activity
             android:name=".activity.EventViewActivity"
             android:label="@string/title_activity_event_view"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.NewEventActivity"
-            android:label="@string/title_activity_new_event"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.LoginActivity" >
+        <activity android:name=".activity.LoginActivity">
+
+        </activity>
+        <activity android:name=".activity.NewOrganizationActivity" />
+        <activity android:name=".activity.NewEventActivity"
+            android:label="Novo evento">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.NewOrganizationActivity">
-
         </activity>
     </application>
 
