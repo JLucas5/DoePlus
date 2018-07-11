@@ -25,8 +25,8 @@ public class NewEventActivity extends AppCompatActivity {
         title = findViewById(R.id.titleInput);
         description = findViewById(R.id.descriptionInput);
         startTime = findViewById(R.id.startTimeInput);
-        endTime = findViewById(R.id.locationInput);
-        location = findViewById(R.id.endTimeInput);
+        endTime = findViewById(R.id.endTimeInput);
+        location = findViewById(R.id.locationInput);
         date = findViewById(R.id.dateInput);
 
         registerButton = findViewById(R.id.registerActionButton);
