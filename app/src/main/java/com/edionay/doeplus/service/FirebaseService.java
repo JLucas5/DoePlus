@@ -29,5 +29,6 @@ public class FirebaseService {
     public static void publishEvent(Event event) {
         firebaseReference = getFirebaseReference();
         firebaseReference.child("events").push().setValue(event);
+
     }
 }
