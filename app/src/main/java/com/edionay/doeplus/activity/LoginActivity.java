@@ -75,8 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
     public void login(Organization organization) {
         autentication = FirebaseService.getAutentication();
         autentication.signInWithEmailAndPassword(organization.getEmail(), organization.getPassword())
@@ -87,8 +85,6 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,
                                     "Login efetuado",
                                     Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
-                            startActivity(intent);
                         } else {
 
                             String exception = "";

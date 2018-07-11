@@ -12,20 +12,12 @@
         <activity
             android:name=".activity.EventListActivity"
             android:label="@string/events" >
-<<<<<<< HEAD
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-=======
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
->>>>>>> funcionaw
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity
@@ -38,10 +30,7 @@
         <activity android:name=".activity.NewOrganizationActivity" />
         <activity android:name=".activity.NewEventActivity"
             android:label="Novo evento">
-<<<<<<< HEAD
-=======
 
->>>>>>> funcionaw
         </activity>
     </application>
 

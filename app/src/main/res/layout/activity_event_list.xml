@@ -7,7 +7,7 @@
     tools:context=".activity.EventListActivity">
 
 
-    <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"></android.support.v7.widget.RecyclerView>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        </android.support.v7.widget.RecyclerView>
 
 
     <LinearLayout
@@ -40,28 +41,16 @@
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-<<<<<<< HEAD
-        android:id="@+id/eventButton"
-=======
         android:id="@+id/floatingActionButton"
->>>>>>> funcionaw
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:clickable="true"
-<<<<<<< HEAD
-        android:onClick="newEventPressAction"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_password_24dp"
-        tools:ignore="OnClick" />
-=======
         android:onClick="newEventTrigger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_add" />
->>>>>>> funcionaw
 
 
 </android.support.constraint.ConstraintLayout>
