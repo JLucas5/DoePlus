@@ -19,6 +19,7 @@ import com.edionay.doeplus.R;
 import com.edionay.doeplus.RecyclerItemClickListener;
 import com.edionay.doeplus.adapter.EventAdapter;
 import com.edionay.doeplus.model.Event;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,7 @@ public class EventListActivity extends AppCompatActivity {
     private List<Event> listEvents;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private EventAdapter eventAdapter;
+    private FirebaseAuth autentication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +138,14 @@ public class EventListActivity extends AppCompatActivity {
     }
 
     public void newEventTrigger(View view) {
-        Intent intent = new Intent(getApplicationContext(), NewEventActivity.class);
-        startActivity(intent);
+
+        autentication = FirebaseAuth.getInstance();
+        if (autentication.getCurrentUser() == null ) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), NewEventActivity.class);
+            startActivity(intent);
+        }
     }
 }

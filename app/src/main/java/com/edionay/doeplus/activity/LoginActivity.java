@@ -85,6 +85,8 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,
                                     "Login efetuado",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), EventListActivity.class);
+                            startActivity(intent);
                         } else {
 
                             String exception = "";
