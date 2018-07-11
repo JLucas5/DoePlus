@@ -19,7 +19,6 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".activity.MainActivity" />
         <activity
             android:name=".activity.EventViewActivity"
             android:label="@string/title_activity_event_view"
